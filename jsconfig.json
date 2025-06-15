@@ -1,0 +1,12 @@
+{
+    "compilerOptions": {
+        "baseUrl": "./",
+        "paths": {
+            "Assets": ["Assets"],
+            "Applications": ["Applications"],
+            "Repositories": ["Repositories"],
+            "Frameworks": ["Frameworks"],
+            "UI": ["UI"]
+        }
+    }
+}
