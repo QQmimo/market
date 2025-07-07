@@ -1,19 +1,44 @@
-import { ProductFramework } from "Frameworks";
-import { Header, Content, Footer } from "UI";
+import { useState } from "react";
+import { Header, Content, Footer, ProductList, Card, View } from "UI";
 
 export function App() {
-    ProductFramework.getProducts().then(data => {
-        console.log(data);
-    });
+    const [productsInCard, setProductsInCard] = useState([]);
+    const [path, setPath] = useState('home');
+    const [viewId, setViewId] = useState(null);
 
-    ProductFramework.getProduct(10).then(data => {
-        console.log(data);
-    });
+    const onAddCard = (id) => {
+        setProductsInCard(prevState => {
+            const finded = prevState.find(x => x.id === id);
+            if (!finded) {
+                prevState.push({ id: id, count: 1 });
+            } else {
+                finded.count += 1;
+            }
+            return prevState;
+        });
+    }
+
+    const onProductDelete = (id) => {
+        setProductsInCard(prevState => {
+            return prevState.filter(x => x.id !== id);
+        });
+    }
+
+    const onShowMore = (id) => {
+        setViewId(id);
+        setPath('more');
+    }
+
+    const MAP = {
+        home: <ProductList onAddCard={onAddCard} onShowMore={onShowMore} />,
+        card: <Card onProductDelete={onProductDelete} products={productsInCard} />,
+        more: <View show={viewId} onAddCard={onAddCard} />
+    };
 
     return (
         <>
-            <Header />
-            <Content />
+            <Header path={path} onChangePath={setPath} />
+            <Content element={MAP[path]} />
             <Footer />
         </>
     );

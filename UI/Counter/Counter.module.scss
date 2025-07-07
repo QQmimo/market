@@ -1,0 +1,17 @@
+.counter {
+    display: flex;
+    gap: 5px;
+
+    .button {
+        width: 25px;
+        height: 25px;
+        background-color: #9dce9d;
+        border: none;
+        cursor: pointer;
+        border-radius: 50%;
+    }
+
+    .input {
+        width: 75px;
+    }
+}

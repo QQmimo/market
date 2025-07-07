@@ -4,14 +4,15 @@ export class ProductFramework {
     static _product(data) {
         return {
             id: data.id,
-            title: data.title,
+            title: data.name,
             price: data.price,
-            imageUrl: ImageRepository.getImageUrl(data.title)
+            description: data.description,
+            images: data.images
         };
     }
 
     static async getProducts() {
-        const allProducts = (await ProductRepository.getAllProducts()).products;
+        const allProducts = (await ProductRepository.getAllProducts());
 
         return allProducts.map(product => this._product(product));
     }

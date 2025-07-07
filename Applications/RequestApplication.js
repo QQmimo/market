@@ -3,7 +3,7 @@ export class RequestApplication {
         const response = await fetch(url, {
             method: 'GET',
             headers: {
-                'accept': 'application/json'
+                'aacept': 'application/json'
             }
         });
 
@@ -11,6 +11,12 @@ export class RequestApplication {
             throw new Error(response.statusText);
         }
 
-        return await response.json();
+        return new Promise(resolve => {
+            setTimeout(() => {
+                response.json().then(data => {
+                    resolve(data);
+                });
+            }, 2000);
+        });
     }
 }

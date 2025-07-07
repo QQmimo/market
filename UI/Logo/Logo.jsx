@@ -3,9 +3,9 @@ import style from "./Logo.module.scss";
 
 export function Logo() {
     return (
-        <a href="./">
+        <div className={style.logo}>
             <img src={logo} className={style.logo} />
-            <span>Market</span>
-        </a>
+            <div className={style.title}>Market</div>
+        </div>
     );
 }

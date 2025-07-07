@@ -3,7 +3,7 @@ import { ProductFramework } from "Frameworks";
 import { Product } from "UI";
 import style from "./ProductList.module.scss";
 
-export function ProductList({ orderKey = null, orderType = 'asc', max = 50 }) {
+export function ProductList({ onAddCard, onShowMore }) {
     const [products, setProducts] = useState([]);
 
     useEffect(() => {
@@ -15,7 +15,12 @@ export function ProductList({ orderKey = null, orderType = 'asc', max = 50 }) {
     return (
         <div className={style.list}>
             {
-                products.map(product => <Product key={product.id} {...product} />)
+                products.map(product => <Product
+                    key={product.id}
+                    onAddCard={onAddCard}
+                    onShowMore={onShowMore}
+                    {...product}
+                />)
             }
         </div>
     );

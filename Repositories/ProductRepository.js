@@ -3,10 +3,10 @@ import { RequestApplication } from "Applications";
 
 export class ProductRepository {
     static async getAllProducts() {
-        return RequestApplication.get(`https://dummyjson.com/products`);
+        return await RequestApplication.get('/api/products');
     }
 
     static async getProduct(id) {
-        return RequestApplication.get(`https://dummyjson.com/products/${id}`);
+        return RequestApplication.get(`/api/products/${id}`);
     }
 }
