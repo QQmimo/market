@@ -20,7 +20,7 @@ export function ProductInCard({ id, title, price, count, images, onCancel, onCha
             <td>
                 <img className={styles.image} src={mainImage} />
             </td>
-            <td>
+            <td className={styles.title}>
                 {title}
             </td>
             <td>

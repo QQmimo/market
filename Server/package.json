@@ -1,0 +1,16 @@
+{
+  "name": "product-api",
+  "version": "1.0.0",
+  "description": "API для работы с товарами",
+  "main": "api.js",
+  "scripts": {
+    "start": "node api.js",
+    "dev": "nodemon api.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.2"
+  }
+}

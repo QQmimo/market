@@ -2,13 +2,13 @@ import styles from "./Description.module.scss";
 
 export function Description({ label, children }) {
     return (
-        <div className={styles.description}>
+        <fieldset className={styles.description}>
             {
                 label
-                    ? <div className={styles.label}>{label}</div>
+                    ? <legend className={styles.label}>{label}</legend>
                     : null
             }
             {children}
-        </div>
+        </fieldset>
     );
 }
